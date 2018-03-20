@@ -1,0 +1,8 @@
+{
+  "name": "gitdev",
+  "app_id": "fdece64d",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
