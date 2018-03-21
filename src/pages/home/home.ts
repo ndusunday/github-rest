@@ -13,7 +13,7 @@ export class HomePage {
   //public items: object;
 
   constructor(public navCtrl: NavController, public gitRest: GitRestProvider ) {
-    this.getUsers();
+    //this.getUsers();
     // this.users = [
     //   {
     //     login: "whatever",

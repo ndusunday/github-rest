@@ -22,7 +22,7 @@ export class GitRestProvider {
       this.http.get(this.apiUrl+'/search/users?q=location:lagos').subscribe(data=> {
         //console.log('my data: ', data);
         resolve(data);
-        console.log('Rest Api - Get all users Successful '+data.items);
+        console.log('Rest Api - Get all users Successful '+data);
       }, err => {
         console.log(err);
       })
