@@ -1,3 +1,46 @@
 page-user-detail {
 
+    ion-content{
+        img.user-img{
+            width: 100%;
+            height: 50%;
+            margin-top: -10px;
+        }
+        p.user-name{
+            margin: 20px 5px;
+        }
+        ion-list{
+            div.following-box{
+                background-color: rgb(26, 25, 25);
+                width: 100%;
+                height: 30px;
+                margin: auto;
+                p.following-box-right {
+                    color: white;
+                    float: right;
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    margin: 7px 7px auto 0px;
+                }
+                p.following-box-left {
+                    color: white;
+                    float: left;
+                    font-size: 0.8em;
+                    font-weight: bold;
+                    margin: 7px auto auto 7px;
+                }
+            }
+
+            ion-item{
+                margin-top: 30px;
+                ion-icon{
+                    
+                }
+                p{
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+
 }

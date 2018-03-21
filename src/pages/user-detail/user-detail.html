@@ -9,31 +9,31 @@
   <ion-navbar>
     <ion-title>{{user.login}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
-  <img src="{{user.avatar_url}}">
-  {{user.name}}
+  <img class="user-img" src="{{user.avatar_url}}">
+  <p class="user-name">{{user.name}}</p>
 
   <ion-list>
-      <ion-list-header>
-        <p class="list-title-left">Following: {{user.following}}</p> <p class="list-title-right">Followers: {{user.followers}}</p>
-      </ion-list-header>
-      <ion-item> 
-        <ion-icon name="person"></ion-icon>
-        <p ion-text>{{user.name}}</p>
+      <div class="following-box">
+        <p class="following-box-left">Following: {{user.following}}</p> 
+        <p class="following-box-right">Followers: {{user.followers}}</p>
+      </div>
+      <ion-item icon-start> 
+        <ion-icon item-start name="person"></ion-icon>
+        <p>{{user.bio}}</p>
       </ion-item>
       <ion-item>
-          <ion-icon name="person"></ion-icon>
+          <ion-icon item-start  ios="logo-rss" md="md-megaphone"></ion-icon>
           <p ion-text>{{user.blog}}</p>
       </ion-item>
       <ion-item>
-          <ion-icon name="person"></ion-icon>
+          <ion-icon item-start name="podium"></ion-icon>
           <p ion-text>{{user.company}}</p>
       </ion-item>
       <ion-item>
-          <ion-icon name="person"></ion-icon>
+          <ion-icon item-start name="navigate"></ion-icon>
           <p ion-text>{{user.location}}</p>
       </ion-item>
     </ion-list>

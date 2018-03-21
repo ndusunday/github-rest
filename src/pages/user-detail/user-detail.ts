@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { GitRestProvider } from '../../providers/git-rest/git-rest';
+import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
 
 /**
  * Generated class for the UserDetailPage page.
@@ -15,25 +16,49 @@ import { GitRestProvider } from '../../providers/git-rest/git-rest';
   templateUrl: 'user-detail.html',
 })
 export class UserDetailPage {
-  public user: any;
-  public userinfo: any;
-  public userinput: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public gitRest:GitRestProvider) {
+  // The variable to store the user object
+  public user: any; 
+  
+  // Variable for loading
+  public loading: any;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public gitRest:GitRestProvider,
+    public loadingCtrl:LoadingController) {
+    // Start Loader
+    this.presentLoading();
+
+    // Get the user object loaded from the home.ts
     this.user = this.navParams.get('user');
-    this.userinput = navParams.get('userinput');
+    // Make a get Using the user object
     this.getUserInfo();
-    console.log("Show the set userinfo "+ this.userinfo);
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UserDetailPage ');
   }
 
-  getUserInfo(){
-    
+  // Handles the loading of show while the app pulls
+  presentLoading(){
+    this.loading = this.loadingCtrl.create({
+      content: 'Please Wait ...'
+    });
+
+    this.loading.present();
+  }
+
+  // Ends the loading
+  endLoading(){
+    this.loading.dismiss();
+  }
+
+  // Getting the user data from the Git Rest provider
+  getUserInfo(){    
     this.gitRest.getUserInfo(this.user)
     .then(data => {
+      this.endLoading();
       this.user = data;
       console.log('User-Details '+this.user.login);
     })

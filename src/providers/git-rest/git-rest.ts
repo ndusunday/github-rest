@@ -11,12 +11,14 @@ import { Injectable } from '@angular/core';
 export class GitRestProvider {
   //https://api.github.com/search/users?q=location:lagos
 
-  apiUrl = 'https://api.github.com'
+  // The base url for github
+  public apiUrl = 'https://api.github.com'
 
   constructor(public http: HttpClient) {
     console.log('Hello GitRestProvider Provider');
   }
 
+  // Make a get request on the http for the users in lagos
   getUsersInLagos(){
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/search/users?q=location:lagos')
@@ -32,6 +34,7 @@ export class GitRestProvider {
     })
   }
 
+  // Make a get request for the user's object 
   getUserInfo(user){
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/users/'+user.login).subscribe(data=>{
