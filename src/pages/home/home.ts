@@ -30,21 +30,20 @@ export class HomePage {
   getUsers() {
     this.gitRest.getUsersInLagos()
     .then(data => {
-      this.users = data.items;
+      this.users = data;
       console.log('getUsers() '+this.users);
     })
   }
   getUserInfo(user){
-    this.gitRest.getUserInfo(user.login)
+    this.gitRest.getUserInfo(user)
     .then(data=> {
       this.user = data;
-      console.log("getUserInfo() "+ data);
     })
   }
 
-  showDetails(userSelect){
-    //this.getUserInfo(userSelect);
-    this.navCtrl.push(UserDetailPage, {user: userSelect, userinfo: this.user});
-    console.log('showDetails() '+ userSelect+""+ this.user);
+  showDetails(user){
+    this.getUserInfo(user);
+    this.navCtrl.push(UserDetailPage, {user: user, userinput: this.user});
+    console.log('showDetails() '+ this.user);
   }
 }

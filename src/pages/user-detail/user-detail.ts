@@ -17,28 +17,27 @@ import { GitRestProvider } from '../../providers/git-rest/git-rest';
 export class UserDetailPage {
   public user: any;
   public userinfo: any;
-  public count: any;
+  public userinput: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public gitRest:GitRestProvider) {
-    this.user = navParams.get('user');
-    this.getUserInfo(this.user);
-    //this.userinfo = navParams.get('userinfo');
-    //this.count = this.userInfo.login;
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UserDetailPage ' + this.userinfo);
-    this.getUserInfo(this.user.login);
+    this.user = this.navParams.get('user');
+    this.userinput = navParams.get('userinput');
+    this.getUserInfo();
     console.log("Show the set userinfo "+ this.userinfo);
   }
 
-  getUserInfo(user: object){
-    this.gitRest.getUserInfo(user.login)
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad UserDetailPage ');
+  }
+
+  getUserInfo(){
+    
+    this.gitRest.getUserInfo(this.user)
     .then(data => {
-      this.userinfo = data;
-      console.log("getUserInfo() "+data);
-      console.log("Type of the data "+ this.userinfo.name);
+      this.user = data;
+      console.log('User-Details '+this.user.login);
     })
+    console.log('User-Details '+this.user.followers);
   }
 
 }

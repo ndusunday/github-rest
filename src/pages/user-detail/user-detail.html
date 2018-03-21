@@ -14,17 +14,28 @@
 
 <ion-content padding>
   <img src="{{user.avatar_url}}">
-  {{user.login}}
+  {{user.name}}
 
   <ion-list>
       <ion-list-header>
-        <p class="list-title-left">{{userinfo}}</p> <p class="list-title-right">count</p>
+        <p class="list-title-left">Following: {{user.following}}</p> <p class="list-title-right">Followers: {{user.followers}}</p>
       </ion-list-header>
       <ion-item> 
-        <p ion-text>List</p>
+        <ion-icon name="person"></ion-icon>
+        <p ion-text>{{user.name}}</p>
       </ion-item>
-      <ion-item>The Empire Strikes Back</ion-item>
-      <ion-item>Blade Runner</ion-item>
+      <ion-item>
+          <ion-icon name="person"></ion-icon>
+          <p ion-text>{{user.blog}}</p>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="person"></ion-icon>
+          <p ion-text>{{user.company}}</p>
+      </ion-item>
+      <ion-item>
+          <ion-icon name="person"></ion-icon>
+          <p ion-text>{{user.location}}</p>
+      </ion-item>
     </ion-list>
     
 </ion-content>

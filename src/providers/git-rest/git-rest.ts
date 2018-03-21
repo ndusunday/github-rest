@@ -19,19 +19,22 @@ export class GitRestProvider {
 
   getUsersInLagos(){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/search/users?q=location:lagos').subscribe(data=> {
+      this.http.get(this.apiUrl+'/search/users?q=location:lagos')
+      .subscribe((data:any)=> {
         //console.log('my data: ', data);
-        resolve(data);
+        resolve(data.items);
         console.log('Rest Api - Get all users Successful '+data);
       }, err => {
         console.log(err);
       })
+    }).catch(err =>{
+      console.log(err);
     })
   }
 
   getUserInfo(user){
     return new Promise(resolve => {
-      this.http.get(this.apiUrl+'/users/'+user).subscribe(data=>{
+      this.http.get(this.apiUrl+'/users/'+user.login).subscribe(data=>{
         resolve(data);
         console.log('Rest Api - Get User successful '+data);
       }, err=>{
