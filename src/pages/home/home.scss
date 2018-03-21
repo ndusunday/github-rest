@@ -1,3 +1,32 @@
 page-home {
+    ion-content{
+        ion-list{
+            ion-item{
+                text-align: center;
+                color: azure;
+                div{
+                    position: relative;
+                    color: aliceblue;
+                    text-align: center;
+                    img {
+                        
+                        //text-align: center;
+                    }
+                    p{
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        font-size: 0.4em;
+                        transform: translate(-50%, -50%);
+                        //border: 1px solid red;
+                        color:rgb(250, 234, 234);
+                        text-transform: uppercase;
+                        font-family: monospace;
+
+                    }
+                }
+            }
+        }
+    }
 
 }
